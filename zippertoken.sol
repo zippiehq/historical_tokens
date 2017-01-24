@@ -1,5 +1,7 @@
 pragma solidity ^0.4.4;
 
+/* Based on zeppelin-solidity */
+
 /*
  * ERC20 interface
  * see https://github.com/ethereum/EIPs/issues/20
@@ -18,6 +20,10 @@ contract ERC20 { /* interface */
 }
 
 contract Zipper_ERC20 is ERC20 {
+   string public name;
+   string public symbol;
+   uint public decimals;
+
   function transferAuthed(address caller, address to, uint value) returns (bool ok);
   function transferFromAuthed(address caller, address from, address to, uint value) returns (bool ok);
   function approveAuthed(address caller, address spender, uint value) returns (bool ok);
@@ -265,4 +271,8 @@ contract SimpleIssuerToken is StandardZipperToken
         issuer = _issuer;
         return true;
     }
+
+    string public name = "SimpleIssuerToken";
+    string public symbol = "SIM";
+    uint public decimals = 18;
 }
