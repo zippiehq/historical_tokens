@@ -1,0 +1,26 @@
+{
+  "name": "tokens",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "node builddeploytest.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zipperglobal/tokens.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zipperglobal/tokens/issues"
+  },
+  "homepage": "https://github.com/zipperglobal/tokens#readme",
+  "dependencies": {
+    "solc": "^0.4.8"
+  },
+  "devDependencies": {
+    "ethereumjs-testrpc": "^3.0.3",
+    "web3": "^0.18.2"
+  }
+}

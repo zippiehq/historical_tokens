@@ -20,9 +20,9 @@ contract ERC20 { /* interface */
 }
 
 contract Zipper_ERC20 is ERC20 {
-   string public name;
-   string public symbol;
-   uint public decimals;
+  function name() constant returns (string result);
+  function symbol() constant returns (string result);
+  function decimals() constant returns (uint result);
 
   function transferAuthed(address caller, address to, uint value) returns (bool ok);
   function transferFromAuthed(address caller, address from, address to, uint value) returns (bool ok);
@@ -271,8 +271,20 @@ contract SimpleIssuerToken is StandardZipperToken
         issuer = _issuer;
         return true;
     }
+}
 
-    string public name = "SimpleIssuerToken";
-    string public symbol = "SIM";
-    uint public decimals = 18;
+/**
+ * The provisional ZIP token
+*/ 
+
+contract PZipToken is SimpleIssuerToken
+{
+    function PZipToken(address _issuer, ITokenActionValidator _validator, address _authedForwarder) 
+         SimpleIssuerToken(_issuer, _validator, _authedForwarder)
+    {
+    }
+
+   function name() constant returns (string result) { return "PZipToken"; }
+   function symbol() constant returns (string result) { return "PZIP"; }
+   function decimals() constant returns (uint result) { return 10; }
 }
